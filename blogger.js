@@ -1,4 +1,3 @@
-//<![CDATA[
 function createLazyVideo(videoId, title, width=384, height=216) {
   const iframe = document.createElement("iframe");
   iframe.width = width;
@@ -20,4 +19,3 @@ function createLazyVideo(videoId, title, width=384, height=216) {
 
   return iframe;
 }
-//]]>
