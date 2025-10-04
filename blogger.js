@@ -1,21 +1,31 @@
-function createLazyVideo(videoId, title, width=384, height=216) {
-  const iframe = document.createElement("iframe");
-  iframe.width = width;
-  iframe.height = height;
-  iframe.frameBorder = "0";
-  iframe.allow = "autoplay";
-  iframe.allowFullscreen = true;
-  iframe.title = title;
-  iframe.srcdoc = `
-<style>
-  * {padding:0;margin:0;overflow:hidden}
-  img,span {position:absolute;width:100%;top:0;bottom:0;margin:auto}
-  span {height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
-</style>
-<a href="https://www.youtube.com/embed/${videoId}?autoplay=1">
-  <img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg">
-  <span>▶</span>
-</a>`;
+function createLazyVideos() {
+  const lazyVideos = document.getElementsByClassName('lazy-load-youtube-video');
+  const size = lazyVideos.length;
 
-  return iframe;
+  for (let i = 0; i < size; i++) {
+    const dataId = lazyVideos[i].getAttribute('video-id');
+    const width = lazyVideos[i].getAttribute('video-width');
+    const height = lazyVideos[i].getAttribute('video-height');
+
+    //set the width and height style for this element
+    lazyVideos[i].setAttribute('style', 'width:' + width + 'px; height:' + height + 'px;')
+
+    // create an image with play symbol as a placeholder
+    let img = document.createElement('img');
+    img.setAttribute('src', 'https://img.youtube.com/vi/' + dataId + '/maxresdefault.jpg');
+    lazyVideos[i].appendChild(img);
+    let span = document.createElement('span');
+    span.textContent = '▶'
+    lazyVideos[i].appendChild(span);
+
+    // on click event to replace the div elment with the iframe video
+    lazyVideos[i].addEventListener('click', function () {
+      let iframe = document.createElement('iframe');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + dataId + '?autoplay=1');
+      iframe.setAttribute('allowfullscreen', '1');
+      iframe.setAttribute('width', width);
+      iframe.setAttribute('height', height);
+      this.parentNode.replaceChild(iframe, this);
+    });
+  }
 }

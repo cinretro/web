@@ -1,0 +1,43 @@
+div.max-width {
+    margin: auto;
+    max-width: 480px;
+    border: 3px;
+}
+
+table.expand-width {
+    margin: auto;
+    width: 100%;
+}
+
+td.title {
+    color: white;
+    text-align: center;
+    background: #808080;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+div.lazy-load-youtube-video {
+    position: relative;
+}
+
+div.lazy-load-youtube-video img, span {
+    position: absolute;
+    width: 100%;
+}
+
+div.lazy-load-youtube-video span {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1.5em;
+    text-align: center;
+    font: 48px/1.5 sans-serif;
+    color: white;
+    text-shadow: 0 0 0.5em black;
+    pointer-events: none;
+}
