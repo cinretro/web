@@ -8,11 +8,13 @@ function createLazyVideos() {
     const height = lazyVideos[i].getAttribute('video-height');
 
     //set the width and height style for this element
-    lazyVideos[i].setAttribute('style', 'width:' + width + 'px; height:' + height + 'px;')
+    //lazyVideos[i].setAttribute('style', 'width:' + width + 'px; height:' + height + 'px;')
 
     // create an image with play symbol as a placeholder
     let img = document.createElement('img');
     img.setAttribute('src', 'https://img.youtube.com/vi/' + dataId + '/maxresdefault.jpg');
+    img.setAttribute('width', width);
+    img.setAttribute('height', height);
     lazyVideos[i].appendChild(img);
     let span = document.createElement('span');
     span.textContent = '▶'

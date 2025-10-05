@@ -25,15 +25,21 @@ div.lazy-load-youtube-video {
     position: relative;
 }
 
-div.lazy-load-youtube-video img, span {
-    position: absolute;
+div.lazy-load-youtube-video img {
     width: 100%;
+    height: auto;
 }
 
 div.lazy-load-youtube-video span {
+    position: absolute;
+    width: 100%;
+
+    left:0;
+    right:0;
     top: 0;
     bottom: 0;
     margin: auto;
+
     height: 1.5em;
     text-align: center;
     font: 48px/1.5 sans-serif;
