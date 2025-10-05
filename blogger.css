@@ -25,11 +25,6 @@ div.lazy-load-youtube-video {
     position: relative;
 }
 
-div.lazy-load-youtube-video img {
-    width: 100%;
-    height: auto;
-}
-
 div.lazy-load-youtube-video span {
     position: absolute;
     width: 100%;
